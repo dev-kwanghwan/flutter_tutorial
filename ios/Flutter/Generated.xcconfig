@@ -1,7 +1,7 @@
 // This is a generated file; do not edit or check into version control.
 FLUTTER_ROOT=/Users/mobility/flutter
 FLUTTER_APPLICATION_PATH=/Users/mobility/Desktop/william_project/flutter/flutter_tutorial
-FLUTTER_TARGET=/Users/mobility/Desktop/william_project/flutter/flutter_tutorial/lib/codelabs-2/main.dart
+FLUTTER_TARGET=/Users/mobility/Desktop/william_project/flutter/flutter_tutorial/lib/main.dart
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
 FLUTTER_FRAMEWORK_DIR=/Users/mobility/flutter/bin/cache/artifacts/engine/ios
