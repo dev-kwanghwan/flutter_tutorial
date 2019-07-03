@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'codelabs/codelab1.dart';
+import 'codelabs/codelab2.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,15 +23,29 @@ class MyWidget extends StatelessWidget {
       appBar: AppBar(
         title: Text('Flutter 학습하기'),
       ),
-      body: RaisedButton(
-          child: Text("WriteYourFirstFlutterApp Button"),
-          onPressed: () {
-            moveWriteYourFirstFlutterApp(context);
-          }),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          RaisedButton(
+              child: Text("WriteYourFirstFlutterApp Button"),
+              onPressed: () {
+                moveWriteYourFirstFlutterAppRoute(context);
+              }),
+          RaisedButton(
+              child: Text("BuildingBeautifulUIsWithFlutterRoute Button"),
+              onPressed: () {
+                moveBuildingBeautifulUIsWithFlutterRoute(context);
+              }),
+        ],
+      )
     );
   }
 
-  void moveWriteYourFirstFlutterApp(BuildContext context) {
+  void moveWriteYourFirstFlutterAppRoute(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) => WriteYourFirstFlutterAppRoute()));
+  }
+
+  void moveBuildingBeautifulUIsWithFlutterRoute(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => BuildingBeautifulUIsWithFlutterRoute()));
   }
 }

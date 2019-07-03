@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
-/**
+/*
     codelabs : https://flutter.dev/docs/codelabs
     - Write Your First Flutter App, part 1
     - Write Your First Flutter App, part 2
