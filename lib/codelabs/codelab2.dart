@@ -18,6 +18,7 @@ class FriendlyChatApp extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("FriendlyChat"),
+        elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
       ),
       body: new ChatScreen(),
     );
