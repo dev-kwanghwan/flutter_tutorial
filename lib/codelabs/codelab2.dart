@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 /*
     codelabs : https://flutter.dev/docs/codelabs
@@ -18,7 +19,9 @@ class FriendlyChatApp extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("FriendlyChat"),
-        elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
+        elevation: Theme
+            .of(context)
+            .platform == TargetPlatform.iOS ? 0.0 : 4.0,
       ),
       body: new ChatScreen(),
     );
@@ -94,12 +97,22 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                             hintText: "Send a message"))),
                 new Container(
                     margin: new EdgeInsets.symmetric(horizontal: 4.0),
-                    child: new IconButton(
+                    child:
+                    Theme
+                        .of(context)
+                        .platform == TargetPlatform.iOS ?
+                    new CupertinoButton(                                       //new
+                      child: new Text("Send"),                                 //new
+                      onPressed: _isComposing                                  //new
+                          ? () =>  _handleSubmitted(_textController.text)      //new
+                          : null,) :
+                    new IconButton(
                       icon: new Icon(Icons.send),
                       onPressed: _isComposing ? () =>
                           _handleSubmitted(_textController.text)
                           : null,
-                    ))
+                    )
+                )
               ],
             )));
   }
