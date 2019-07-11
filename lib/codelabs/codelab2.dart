@@ -41,30 +41,38 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new Column(
-        children: <Widget>[
-          new Flexible(
-              child: new ListView.builder(
-                padding: new EdgeInsets.all(8.0),
-                reverse: true,
-                itemBuilder: (_, int index) => _messages[index],
-                itemCount: _messages.length,
-              )),
-          new Divider(
-            height: 1.0,
+      body: new Container(
+          child: new Column(
+            children: <Widget>[
+              new Flexible(
+                  child: new ListView.builder(
+                    padding: new EdgeInsets.all(8.0),
+                    reverse: true,
+                    itemBuilder: (_, int index) => _messages[index],
+                    itemCount: _messages.length,
+                  )),
+              new Divider(
+                height: 1.0,
+              ),
+              new Container(
+                decoration: new BoxDecoration(
+                  color: Theme
+                      .of(context)
+                      .cardColor,
+                ),
+                child: _buildTextComposer(context),
+              )
+            ],
           ),
-          new Container(
-            decoration: new BoxDecoration(
-              color: Theme
-                  .of(context)
-                  .cardColor,
-            ),
-            child: _buildTextComposer(context),
-          )
-        ],
-      ),
-
-//      body: _buildTextComposer(context),
+          decoration: Theme
+              .of(context)
+              .platform == TargetPlatform.iOS //new
+              ? new BoxDecoration( //new
+            border: new Border( //new
+              top: new BorderSide(color: Colors.grey[200]), //new
+            ), //new
+          ) //new
+              : null),
     );
   }
 
@@ -97,22 +105,23 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                             hintText: "Send a message"))),
                 new Container(
                     margin: new EdgeInsets.symmetric(horizontal: 4.0),
-                    child:
-                    Theme
+                    child: Theme
                         .of(context)
-                        .platform == TargetPlatform.iOS ?
-                    new CupertinoButton(                                       //new
-                      child: new Text("Send"),                                 //new
-                      onPressed: _isComposing                                  //new
-                          ? () =>  _handleSubmitted(_textController.text)      //new
-                          : null,) :
-                    new IconButton(
-                      icon: new Icon(Icons.send),
-                      onPressed: _isComposing ? () =>
-                          _handleSubmitted(_textController.text)
+                        .platform == TargetPlatform.iOS
+                        ? new CupertinoButton(
+                      //new
+                      child: new Text("Send"), //new
+                      onPressed: _isComposing //new
+                          ? () =>
+                          _handleSubmitted(_textController.text) //new
                           : null,
                     )
-                )
+                        : new IconButton(
+                      icon: new Icon(Icons.send),
+                      onPressed: _isComposing
+                          ? () => _handleSubmitted(_textController.text)
+                          : null,
+                    ))
               ],
             )));
   }
