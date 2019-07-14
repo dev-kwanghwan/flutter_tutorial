@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 
 import 'codelabs/codelab1.dart';
 import 'codelabs/codelab2.dart';
+import 'codelabs/codelab3.dart';
 
 void main() => runApp(MyApp());
 
@@ -49,6 +50,11 @@ class MyWidget extends StatelessWidget {
                 onPressed: () {
                   moveBuildingBeautifulUIsWithFlutterRoute(context);
                 }),
+            RaisedButton(
+                child: Text("AddingGoogleMapsToAFlutterApp Button"),
+                onPressed: () {
+                  moveAddingGoogleMapsToAFlutterAppRoute(context);
+                }),
           ],
         ));
   }
@@ -61,5 +67,10 @@ class MyWidget extends StatelessWidget {
   void moveBuildingBeautifulUIsWithFlutterRoute(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => BuildingBeautifulUIsWithFlutterRoute()));
+  }
+
+  void moveAddingGoogleMapsToAFlutterAppRoute(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => AddingGoogleMapsToAFlutterAppRoute()));
   }
 }
